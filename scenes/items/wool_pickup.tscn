@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bqblardogjvoe"]
+
+[ext_resource type="Script" uid="uid://ctmenm3h1c0d5" path="res://scenes/items/wool_pickup.gd" id="1_gdnwg"]
+[ext_resource type="Texture2D" uid="uid://c4e4x8oea2pv1" path="res://assets/sprite_sheets/key_items.png" id="1_qyuhk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_twto6"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2glc"]
+atlas = ExtResource("1_qyuhk")
+region = Rect2(0, 0, 16, 16)
+
+[node name="WoolPickup" type="Area2D" unique_id=1936026161]
+script = ExtResource("1_gdnwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1396577972]
+shape = SubResource("CircleShape2D_twto6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=184586882]
+texture = SubResource("AtlasTexture_b2glc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

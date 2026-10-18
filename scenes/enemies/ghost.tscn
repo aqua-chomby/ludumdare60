@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dlebte0ky6fc4"]
+
+[ext_resource type="Texture2D" uid="uid://c8tehg8lnfm0" path="res://assets/sprite_sheets/enemy_sheet.png" id="1_tijse"]
+[ext_resource type="PackedScene" uid="uid://dnitdgieh2qhh" path="res://scenes/enemies/behavior_component.tscn" id="2_ly0wf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly0wf"]
+atlas = ExtResource("1_tijse")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr43c"]
+atlas = ExtResource("1_tijse")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tijse"]
+atlas = ExtResource("1_tijse")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2dff"]
+atlas = ExtResource("1_tijse")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twto6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ly0wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr43c")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tijse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2dff")
+}],
+"loop": 1,
+"name": &"defeat",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twto6"]
+size = Vector2(16, 16)
+
+[node name="Ghost" type="Area2D" unique_id=266511299]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1547102479]
+sprite_frames = SubResource("SpriteFrames_twto6")
+animation = &"defeat"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1611660041]
+shape = SubResource("RectangleShape2D_twto6")
+
+[node name="BehaviorComponent" parent="." unique_id=634529454 instance=ExtResource("2_ly0wf")]

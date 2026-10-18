@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cxqc0uiqwoyxy"]
+
+[ext_resource type="Texture2D" uid="uid://c4e4x8oea2pv1" path="res://assets/sprite_sheets/key_items.png" id="1_rlo45"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twto6"]
+atlas = ExtResource("1_rlo45")
+region = Rect2(16, 0, 32, 16)
+
+[node name="WinScreen" type="Control" unique_id=1336124993]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=463994908]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=576441974]
+position = Vector2(152, 128)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_twto6")
+
+[node name="Label" type="Label" parent="." unique_id=416595344]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 187.0
+offset_bottom = 97.0
+text = "You spun!"
+
+[node name="Label2" type="Label" parent="." unique_id=277556783]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 168.0
+offset_right = 315.0
+offset_bottom = 217.0
+text = "You won!"

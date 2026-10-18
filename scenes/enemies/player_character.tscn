@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://ckdpurbswec0w"]
+
+[ext_resource type="Script" uid="uid://c8a1bq0vi3bhf" path="res://scenes/enemies/player_character.gd" id="1_y3t17"]
+[ext_resource type="Texture2D" uid="uid://2j6bk13t50o7" path="res://assets/sprite_sheets/player_run_idle.png" id="2_yu8ii"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy31s"]
+size = Vector2(20, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amb7v"]
+atlas = ExtResource("2_yu8ii")
+region = Rect2(198, 0, 33, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycxtx"]
+atlas = ExtResource("2_yu8ii")
+region = Rect2(231, 0, 33, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4lmh"]
+atlas = ExtResource("2_yu8ii")
+region = Rect2(0, 0, 33, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjoxr"]
+atlas = ExtResource("2_yu8ii")
+region = Rect2(33, 0, 33, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apbma"]
+atlas = ExtResource("2_yu8ii")
+region = Rect2(66, 0, 33, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfh13"]
+atlas = ExtResource("2_yu8ii")
+region = Rect2(99, 0, 33, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay6m7"]
+atlas = ExtResource("2_yu8ii")
+region = Rect2(132, 0, 33, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0bdl"]
+atlas = ExtResource("2_yu8ii")
+region = Rect2(165, 0, 33, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twto6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amb7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycxtx")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4lmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjoxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apbma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfh13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay6m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0bdl")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_yu8ii"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_twto6"]
+gradient = SubResource("Gradient_yu8ii")
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1901521233]
+script = ExtResource("1_y3t17")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=476043792]
+shape = SubResource("RectangleShape2D_wy31s")
+
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=409404043]
+wait_time = 0.1
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="." unique_id=159673045]
+wait_time = 0.12
+one_shot = true
+
+[node name="LeftHeadNudge" type="RayCast2D" parent="." unique_id=83004703]
+position = Vector2(-10, -25)
+target_position = Vector2(0, -2)
+hit_from_inside = true
+
+[node name="LeftHeadNudge2" type="RayCast2D" parent="." unique_id=988376192]
+position = Vector2(-7, -25)
+target_position = Vector2(0, -2)
+hit_from_inside = true
+
+[node name="RightHeadNudge3" type="RayCast2D" parent="." unique_id=1584264011]
+position = Vector2(10, -25)
+target_position = Vector2(0, -2)
+hit_from_inside = true
+
+[node name="RightHeadNudge4" type="RayCast2D" parent="." unique_id=1491453157]
+position = Vector2(7, -25)
+target_position = Vector2(0, -2)
+hit_from_inside = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1034691907]
+sprite_frames = SubResource("SpriteFrames_twto6")
+animation = &"idle"
+
+[node name="RightLedgehop" type="RayCast2D" parent="." unique_id=216615328]
+position = Vector2(8, 24)
+target_position = Vector2(2, 0)
+hit_from_inside = true
+
+[node name="RightLedgehop2" type="RayCast2D" parent="." unique_id=1729786203]
+position = Vector2(8, 16)
+target_position = Vector2(2, 0)
+hit_from_inside = true
+
+[node name="LeftLedgehop" type="RayCast2D" parent="." unique_id=1653465417]
+position = Vector2(-8, 24)
+target_position = Vector2(-2, 0)
+hit_from_inside = true
+
+[node name="LeftLedgehop2" type="RayCast2D" parent="." unique_id=847902444]
+position = Vector2(-8, 16)
+target_position = Vector2(-2, 0)
+hit_from_inside = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=784801629]
+visible = false
+position = Vector2(-2.9802322e-07, -1.9073486e-06)
+scale = Vector2(0.07812499, 50.000004)
+texture = SubResource("GradientTexture1D_twto6")

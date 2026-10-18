@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dnitdgieh2qhh"]
+
+[ext_resource type="Script" uid="uid://5td4tn4rk38n" path="res://scripts/enemies/behavior_component.gd" id="1_2lixd"]
+
+[node name="BehaviorComponent" type="Node" unique_id=634529454]
+script = ExtResource("1_2lixd")

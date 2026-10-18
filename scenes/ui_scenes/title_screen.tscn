@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d1mpt30adsuo6"]
+
+[ext_resource type="Script" uid="uid://biefj7eiajt2g" path="res://scripts/ui_scenes/title_screen.gd" id="1_avjyt"]
+
+[node name="TitleScreen" type="Control" unique_id=283193825]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_avjyt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=854416834]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=191348039]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.5
+offset_right = 72.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="GameTitle" type="Label" parent="VBoxContainer" unique_id=481079308]
+layout_mode = 2
+text = "Olde Castle"
+
+[node name="SubTitle" type="Label" parent="VBoxContainer" unique_id=435298210]
+layout_mode = 2
+text = "for Ludum Dare 60"
+
+[node name="StartGame" type="Button" parent="VBoxContainer" unique_id=1608911525]
+layout_mode = 2
+text = "Play"
+
+[node name="Credits" type="Button" parent="VBoxContainer" unique_id=258238765]
+layout_mode = 2
+text = "Credits"
+
+[connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]

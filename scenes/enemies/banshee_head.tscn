@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://kxj07ipbhpmu"]
+
+[ext_resource type="Texture2D" uid="uid://c8tehg8lnfm0" path="res://assets/sprite_sheets/enemy_sheet.png" id="1_46glb"]
+[ext_resource type="PackedScene" uid="uid://dnitdgieh2qhh" path="res://scenes/enemies/behavior_component.tscn" id="2_wmiua"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmiua"]
+atlas = ExtResource("1_46glb")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f1f4"]
+atlas = ExtResource("1_46glb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46glb"]
+atlas = ExtResource("1_46glb")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_falx1"]
+atlas = ExtResource("1_46glb")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twto6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmiua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f1f4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46glb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_falx1")
+}],
+"loop": 1,
+"name": &"defeat",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_46glb"]
+radius = 7.017834
+
+[node name="BansheeHead" type="Area2D" unique_id=2138600480]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=358877982]
+sprite_frames = SubResource("SpriteFrames_twto6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1945396757]
+position = Vector2(0, 0.5)
+shape = SubResource("CircleShape2D_46glb")
+
+[node name="BehaviorComponent" parent="." unique_id=634529454 instance=ExtResource("2_wmiua")]

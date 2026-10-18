@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bclhlu5msiamk"]
+
+[ext_resource type="Texture2D" uid="uid://da5oeaqd5bjk8" path="res://assets/sprite_sheets/spinning_wheel.png" id="1_mwd34"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vdem"]
+atlas = ExtResource("1_mwd34")
+region = Rect2(64, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4lam"]
+atlas = ExtResource("1_mwd34")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecu82"]
+atlas = ExtResource("1_mwd34")
+region = Rect2(64, 0, 64, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twto6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vdem")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4lam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecu82")
+}],
+"loop": 1,
+"name": &"spinnging",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2glc"]
+size = Vector2(48, 34)
+
+[node name="SpinningWheel" type="Area2D" unique_id=512452176]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=505739085]
+sprite_frames = SubResource("SpriteFrames_twto6")
+animation = &"spinnging"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1895604721]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_b2glc")
